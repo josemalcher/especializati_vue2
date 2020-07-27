@@ -28,7 +28,17 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ## <a name="parte1">1 - 01 - Organização do Curso de Vue JS</a>
 
 - 01 - O que é o Vue JS
+
+    - https://vuejs.org/v2/guide/
+
 - 02 - Ferramentas Necessárias Curso de Vue JS
+
+    - Visual Studio Code: https://code.visualstudio.com/
+    - Chrome: https://www.google.com.br/chrome/browser/desktop/index.html
+    - Git: https://git-scm.com/
+    - Cmder: http://cmder.net/
+    - Vue DevTools: https://github.com/vuejs/vue-devtools
+    - NodeJS: https://nodejs.org/en/
 
 [Voltar ao Índice](#indice)
 

@@ -123,6 +123,27 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 - 05 - Diretiva v-html Vue JS
 
+```html
+<div id="app">
+    <h1>{{title}}</h1>
+    <div v-html="description"></div>
+</div>
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: "Titulo teste",
+            description: "<strong>Texto teste em negrito html</strong> texto normal"
+        }
+    })
+</script>
+```
+
+
 [Voltar ao Índice](#indice)
 
 ---

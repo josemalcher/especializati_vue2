@@ -99,6 +99,28 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ```
 
 - 04 - Diretiva v-once Vue JS
+
+```html
+<div id="app">
+    <h1 v-once>{{name}}</h1>
+    <input type="text" placeholder="texto qualquer" v-model:value="name">
+    <p>{{name}}</p>
+    <p>{{name}}</p>
+</div>
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: 'Nome teste'
+        }
+    })
+</script>
+```
+
 - 05 - Diretiva v-html Vue JS
 
 [Voltar ao Índice](#indice)

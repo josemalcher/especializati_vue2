@@ -49,7 +49,55 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 - 01 - Hello World em Vue JS
 - 02 - Data Binding Vue JS
+
+```html
+<div id="app">
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <p>{{isActive == true ? 'Ativo' : 'Não ativo'}}</p>
+    <a v-bind:href="url" :title="title" href="">{{textAcademic}}</a>
+</div>
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello Vue!',
+            description: 'Descrição...',
+            isActive: true,
+            textAcademic: "Curso de Vue",
+            url: "https://josemalcher.net"
+        }
+    })
+</script>
+```
+
 - 03 - Two Way Data Binding Vue JS
+
+```html
+<div id="app">
+    <input type="text" placeholder="Informe algo" v-model:value="name">
+    <p>{{name}}</p>
+    <p>{{name}}</p>
+    <p>{{name}}</p>
+</div>
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: ''
+        }
+    })
+</script>
+```
+
 - 04 - Diretiva v-once Vue JS
 - 05 - Diretiva v-html Vue JS
 

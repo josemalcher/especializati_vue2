@@ -179,6 +179,45 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ```
 
 - 02 - Eventos com Parâmetros no Vue JS
+
+```html
+<div id="app">
+
+    <input type="text" @keyup="changeInput">
+    <button @click="changeInputTwo(2)">Incrementar 2</button>
+
+    <input type="text" @keyup="changeInputThree(2, $event)">
+
+    {{count}}
+</div>
+
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        methods:{
+            changeInput: function (event) {
+                console.log(event.target.value)
+            },
+            changeInputTwo: function (value) {
+                this.count += value
+            },
+            changeInputThree: function (value, event) {
+                value += parseInt(event.target.value)
+                this.count += value
+            }
+        }
+
+    })
+</script>
+```
+
 - 03 - Eventos de Teclados no Vue JS
 - 04 - Eventos Teclas Modificadoras no Vue JS
 - 05 - Eventos Teclas Modificadoras de Sistema

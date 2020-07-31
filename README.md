@@ -152,6 +152,32 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ## <a name="parte3">3 - 03 - Events</a>
 
 - 01 - Eventos no Vue JS
+
+```html
+<div id="app">
+    <input type="text" v-on:keyup="count++">
+
+    <hr>
+    <button @click="count++">Incrementar</button>
+    {{count}}
+    <button @click="count--">Decrementar</button>
+
+</div>
+
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        }
+    })
+</script>
+```
+
 - 02 - Eventos com Parâmetros no Vue JS
 - 03 - Eventos de Teclados no Vue JS
 - 04 - Eventos Teclas Modificadoras no Vue JS

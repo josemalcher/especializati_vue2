@@ -178,7 +178,7 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 </script>
 ```
 
-- 02 - Eventos com Parâmetros no Vue JS
+- ssssssss
 
 ```html
 <div id="app">
@@ -219,6 +219,45 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ```
 
 - 03 - Eventos de Teclados no Vue JS
+
+```html
+
+<div id="app">
+    <input type="text" @keyup.enter="changeValue" @keyup.up="changeValueUp" @blur="medhotBlur">
+
+    {{valueText}}
+</div>
+
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            valueText: ''
+        },
+        methods:{
+            changeValue(event){
+                this.valueText = event.target.value
+            },
+            changeValueUp(event){
+                alert('ALERT UP OK')
+            },
+            medhotBlur(event){
+                console.log(event);
+            },
+            codTecla(event){
+                console.log(event.keyCode);
+            }
+        }
+    })
+</script>
+
+```
+
+
 - 04 - Eventos Teclas Modificadoras no Vue JS
 - 05 - Eventos Teclas Modificadoras de Sistema
 - 06 - Mais Sobre Eventos no Vue JS

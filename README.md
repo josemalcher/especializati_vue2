@@ -259,6 +259,52 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 
 - 04 - Eventos Teclas Modificadoras no Vue JS
+
+```html
+<div id="app">
+    <!--<div @click.ctrl="testeEvent">
+        Click AQUI!
+    </div>-->
+
+    <div @click.ctrl.exact="testeEvent">
+        Click AQUI!
+    </div>
+
+    <div @click.ctrl.63="testeEvent">
+        Click AQUI!
+    </div>
+
+    <div @click.alt="testeEvent">
+        Click AQUI!
+    </div>
+
+    <div @click.shift="testeEvent">
+        Click AQUI!
+    </div>
+
+    <div @click.meta="testeEvent">
+        Click AQUI!
+    </div>
+</div>
+
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        }, methods:{
+            testeEvent(){
+                alert("TESTE OK");
+            }
+        }
+    })
+</script>
+```
+
 - 05 - Eventos Teclas Modificadoras de Sistema
 - 06 - Mais Sobre Eventos no Vue JS
 

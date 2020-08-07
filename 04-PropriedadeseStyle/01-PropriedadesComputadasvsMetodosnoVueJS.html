@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="count++">Incrementar</button>
+    <button @click="count--">Decrementar</button>
+    <button @click="counttwo--">Decrementar 2</button>
+    <p>{{count}} || {{countComputed}}  || {{countMethods()}} </p>
+    <p>{{counttwo}}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            counttwo: 0
+        },
+        computed:{
+            countComputed: function (){
+                if(this.count >= 5){
+                    console.log('COMPUTED');
+                }
+                return this.count >= 5 ? 'MAIOR que 5' : 'menor que 5';
+            }
+        },methods:{
+            countMethods: function (){
+                if(this.count >= 5){
+                    console.log('METHOD');
+                }
+                return this.count >= 5 ? 'MAIOR que 5' : 'menor que 5';
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

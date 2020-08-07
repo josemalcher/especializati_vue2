@@ -341,6 +341,8 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 - 06 - Mais Sobre Eventos no Vue JS
 
+    - https://br.vuejs.org/v2/guide/events.html
+
 [Voltar ao Índice](#indice)
 
 ---
@@ -349,6 +351,47 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ## <a name="parte4">4 - 04 - Propriedades e Style</a>
 
 - 01 - Propriedades Computadas vs Métodos no Vue JS
+
+- https://vuejs.org/v2/guide/computed.html
+    
+```html
+<div id="app">
+    <button @click="count++">Incrementar</button>
+    <button @click="count--">Decrementar</button>
+    <button @click="counttwo--">Decrementar 2</button>
+    <p>{{count}} || {{countComputed}}  || {{countMethods()}} </p>
+    <p>{{counttwo}}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            counttwo: 0
+        },
+        computed:{
+            countComputed: function (){
+                if(this.count >= 5){
+                    console.log('COMPUTED');
+                }
+                return this.count >= 5 ? 'MAIOR que 5' : 'menor que 5';
+            }
+        },methods:{
+            countMethods: function (){
+                if(this.count >= 5){
+                    console.log('METHOD');
+                }
+                return this.count >= 5 ? 'MAIOR que 5' : 'menor que 5';
+            }
+        }
+
+    })
+</script>
+```
+
+
 - 02 - (Watchers) Observadores Vue JS
 - 03 - Styles Vue JS
 

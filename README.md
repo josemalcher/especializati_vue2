@@ -424,6 +424,67 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 - 03 - Styles Vue JS
 
+- https://vuejs.org/v2/guide/class-and-style.html
+
+```html
+    <style>
+        .active{
+            background: green;
+        }
+        .no-active{
+            background: red;
+        }
+        .default{
+            color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <div :class="{active : isActive}">
+        Exemplo de Style no VUE
+    </div>
+    <div :class="{active : isActive}">
+        Exemplo de Style no VUE
+    </div>
+    <div class="default" :class="isActive ? 'active': 'no-active'">
+        Exemplo de Style no VUE
+    </div>
+
+    <div :class="['default', isActive ? 'active' : 'no-active']">
+        Exemplo de Style no VUE with Array
+    </div>
+
+    <div :class="classObject">
+        Exemplo com objeto
+    </div>
+
+    <div :style="{display: ['-webkit-flex', '-moz-flex', 'flex']}">
+        Exemplo com objeto
+    </div>
+
+    <button @click="isActive = !isActive">Alternar Classe</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isActive: false,
+            classObject: {
+                active: true,
+                'text-red': true,
+                'color-white': true
+            }
+        }
+
+    })
+</script>
+```
+
 [Voltar ao Índice](#indice)
 
 ---

@@ -393,6 +393,35 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 
 - 02 - (Watchers) Observadores Vue JS
+
+- https://vuejs.org/v2/guide/computed.html#Watchers
+
+```html
+<div id="app">
+    <button @click="count++">Aumentar</button>
+    <p>{{count}}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count:0
+        },
+        watch:{
+            count: function (value) {
+                var vm = this;
+                setTimeout(function (){
+                    vm.count = 0
+                }, 3000)
+            }
+        }
+
+    })
+</script>
+```
+
 - 03 - Styles Vue JS
 
 [Voltar ao Índice](#indice)

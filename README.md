@@ -306,6 +306,39 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ```
 
 - 05 - Eventos Teclas Modificadoras de Sistema
+
+```html
+<div id="app">
+    <a :href="urlLink" @click.prevent="showAlert">{{textLink}}</a>
+    <hr>
+    <form action="#" method="post" @submit.prevent="showAlert">
+        <input type="text" placeholder="Nome">
+        <button type="submit">Enviar Form</button>
+    </form>
+    <hr>
+    <button @click.once="showAlert">Enviar Formulário</button>
+</div>
+
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            textLink: "Jose Malcher Jr.",
+            urlLink: "https://josemalcher.net"
+        }, methods:{
+            showAlert(event){
+                //event.preventDefault();
+                alert('clicou aqui');
+            }
+        }
+    })
+</script>
+```
+
 - 06 - Mais Sobre Eventos no Vue JS
 
 [Voltar ao Índice](#indice)

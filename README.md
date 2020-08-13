@@ -620,6 +620,55 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
     
 - 04 - Filtros no Vue JS
 
+- https://br.vuejs.org/v2/guide/filters.html
+
+```html
+
+    <style>
+        .active {
+            background: greenyellow;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="task in tasks" :class="{active: task.completed}">
+            {{task.id}} - {{task.name | toUpperCase}} - {{task.name | toLowerCase}}
+        </li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    Vue.filter('toLowerCase', function (val){
+        return val.toLowerCase();
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            tasks: [
+                {id: 1, name: 'Lavar louça', completed: false},
+                {id: 2, name: 'Cortar grama', completed: false},
+                {id: 3, name: 'estudar', completed: true}
+            ]
+        },
+        filters:{
+            toUpperCase(val) {
+                return val.toUpperCase()
+            }
+        }
+
+    })
+</script>
+
+```
+
 [Voltar ao Índice](#indice)
 
 ---

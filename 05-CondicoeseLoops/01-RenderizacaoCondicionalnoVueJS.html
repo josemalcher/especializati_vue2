@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <div v-if="number < 12">
+        {{textExemplo}} = menor que 12
+    </div>
+
+    <div v-else-if="number == 20">
+        igual a 20
+    </div>
+
+    <div v-else>
+        Não bateu...
+    </div>
+
+    <div v-if="isActive">
+        {{textExemplo}}
+    </div>
+    <div v-else>
+        Não Ativo - v-else
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            number: 20,
+            isActive: false,
+            textExemplo: "Texto Data"
+        }
+
+    })
+</script>
+</body>
+</html>

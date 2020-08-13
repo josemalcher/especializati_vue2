@@ -493,6 +493,48 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ## <a name="parte5">5 - 05 - Condições e Loops</a>
 
 - 01 - Renderização Condicional no Vue JS (v-if, v-else-if, v-else)
+
+- https://vuejs.org/v2/guide/conditional.html#v-if
+
+```html
+<div id="app">
+    <div v-if="number < 12">
+        {{textExemplo}} = menor que 12
+    </div>
+
+    <div v-else-if="number == 20">
+        igual a 20
+    </div>
+
+    <div v-else>
+        Não bateu...
+    </div>
+
+    <div v-if="isActive">
+        {{textExemplo}}
+    </div>
+    <div v-else>
+        Não Ativo - v-else
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            number: 20,
+            isActive: false,
+            textExemplo: "Texto Data"
+        }
+
+    })
+</script>
+```
+
+
+
+
 - 02 - Diretiva v-show no Vue JS
 - 03 - Loops de Repetição no Vue JS (Diretiva v-for)
 - 04 - Filtros no Vue JS

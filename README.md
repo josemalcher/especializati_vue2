@@ -570,6 +570,54 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ```
 
 - 03 - Loops de Repetição no Vue JS (Diretiva v-for)
+
+    - https://vuejs.org/v2/guide/list.html
+    
+```html
+
+    <style>
+        .active{
+            background: greenyellow;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="i in 10">{{i}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="product in products">{{product}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(task, index) in tasks" :class="{active: task.isActive}">
+            {{index}} -> {{task.id}} - {{task.name}}
+        </li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            products: ['TV', 'GELADEIRA', 'MICRO-ONDAS'],
+            tasks: [
+                {id:1, name: 'Lavar louça', isActive: false},
+                {id:2, name: 'Cortar grama', isActive: false},
+                {id:3, name: 'estudar', isActive: true}
+            ]
+        }
+
+    })
+</script>
+```    
+    
 - 04 - Filtros no Vue JS
 
 [Voltar ao Índice](#indice)

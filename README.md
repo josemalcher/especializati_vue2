@@ -536,6 +536,39 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 
 
 - 02 - Diretiva v-show no Vue JS
+
+```html
+
+<div id="app">
+    <div v-if="isActive">
+        V-IF
+    </div>
+    <!---->
+
+    <div v-show="isActive">
+        V-SHOW
+    </div>
+    <!--
+    <div wfd-invisible="true" style="display: none;">
+        V-SHOW
+    </div>
+    -->
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isActive: false
+
+        }
+
+    })
+</script>
+```
+
 - 03 - Loops de Repetição no Vue JS (Diretiva v-for)
 - 04 - Filtros no Vue JS
 

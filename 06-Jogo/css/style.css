@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    max-width: 100%;
+}
+.title{
+    color: #999999;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+.active img{background: #5cb85c}
+
+img.carts{
+    max-width: 160px;
+}
+
+img.cart{
+    max-width: 145px;
+}

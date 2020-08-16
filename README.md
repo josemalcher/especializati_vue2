@@ -750,6 +750,66 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ```
 
 - 02 - Ação de Pular Jogo Vue JS
+
+```html
+
+<div id="app" class="container text-center">
+    <h1>Jogo do 21</h1>
+    <div class="row">
+        <div :class="['col-6', playerActived == 1 ? 'active' : '']">
+            <img src="assets/player1.png" alt="Play 1">
+            <p>player 1</p>
+        </div>
+        <div :class="['col-6', playerActived == 2 ? 'active' : '']">
+            <img src="assets/player2.png" alt="Play 1">
+            <p>player 2</p>
+        </div>
+
+        <div class="controls col">
+            <a href="#" class="btn btn-success" @click.prevent="changePlayer">Pular</a>
+            <a href="" class="btn btn-primary">Finalizar Jogo</a>
+            <a href="" class="btn btn-danger">Resetar</a>
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <a href="">
+                <img src="assets/baralho-cartas.png" alt="" class="carts">
+            </a>
+        </div>
+        <div class="col-6">
+            <a href="">
+                <img src="assets/carts/1.png" alt="" class="cart">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    Vue.filter('toLowerCase', function (val) {
+        return val.toLowerCase();
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            playerActived: 1
+        },
+        methods:{
+            changePlayer(){
+                this.playerActived = this.playerActived == 1 ? 2 :1
+            }
+        }
+
+    })
+</script>
+```
+
 - 03 - Escolher Carta e Somar Pontos Jogo Vue JS
 - 04 - Opção Finalizar Jogo e Informar Vencedor Jogo Vue JS
 - 05 - Resetar Jogo Vue JS

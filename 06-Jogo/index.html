@@ -28,8 +28,8 @@
 
         <div class="controls col">
             <a href="#" class="btn btn-success" @click.prevent="changePlayer">Pular</a>
-            <a href="" class="btn btn-primary" @click.prevent="finishGame">Finalizar Jogo</a>
-            <a href="" class="btn btn-danger">Resetar</a>
+            <a href="#" class="btn btn-primary" @click.prevent="finishGame">Finalizar Jogo</a>
+            <a href="#" class="btn btn-danger" @click.prevent="resetGame">Resetar</a>
         </div>
 
     </div>
@@ -97,6 +97,17 @@
                 }else{
                     alert("Empate");
                 }
+
+                let vm = this
+                setTimeout(function (){
+                    vm.resetGame();
+                }, 3000)
+            },
+            resetGame(){
+                this.playOne.points = 0
+                this.playTwo.points = 0
+                this.cartSelected = ''
+                this.playerActived = 1
             }
         }
 

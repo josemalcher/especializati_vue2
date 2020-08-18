@@ -1005,6 +1005,33 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ## <a name="parte8">8 - 08 - Vue CLI com Webpack</a>
 
 - 01 - Instalando Vue CLI
+
+    - GitHub vue-cli oficial: https://github.com/vuejs/vue-cli
+    - Template webpack-simple: https://github.com/vuejs-templates/webpack-simple
+
+```
+$ vue init webpack-simple my-project
+
+? Project name my-project
+? Project description A Vue.js project
+? Author José Malcher Jr. <contato@josemalcher.net>
+? License MIT
+? Use sass? No
+
+   vue-cli · Generated "my-project".
+
+   To get started:
+
+     cd my-project
+     npm install
+     npm run dev
+
+
+
+npm run dev
+
+```
+
 - 02 - Estrutura webpack-simple Vue CLI
 - 03 - Components Vue CLI
 - 04 - Component Listagem de Itens

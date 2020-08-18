@@ -959,7 +959,43 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 ## <a name="parte7">7 - 07 - Components</a>
 
 - 01 - Apresentação Components Vue JS
+
+    - https://vuejs.org/v2/guide/components.html
+
 - 02 - Components no Vue JS
+
+```html
+
+<div id="app">
+
+    <my-component></my-component>
+
+</div>
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    Vue.component('my-component', {
+        template: `<div>
+                    <p>My Component</p>
+                    <child-component></child-component>
+                   </div>`
+    })
+
+    Vue.component('child-component', {
+        template: "<p>My CHILD Component</p>"
+    })
+
+    new Vue({
+        el: "#app",
+        data: {
+
+        }
+    });
+</script>
+```
 
 [Voltar ao Índice](#indice)
 

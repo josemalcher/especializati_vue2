@@ -815,6 +815,142 @@ APRENDA A CRIAR APLICAÇÕES COM O MELHOR FRAMEWORK JAVASCRIPT DA ATUALIDADE, ES
 - 05 - Resetar Jogo Vue JS
 - 06 - Melhorias e Histórico de Jogadas Jogo Vue JS
 
+```html
+<!doctype html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06 - JOGO do 21</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<div id="app" class="container text-center">
+    <h1>Jogo do 21</h1>
+    <div class="row">
+        <div :class="['col-6', playerActived == 1 ? 'active' : '']">
+            <img src="assets/player1.png" alt="Play 1">
+            <p>player 1
+                <span class="badge badge-default">{{numberHistoricPlayerOne}}</span>
+            </p>
+            <p><strong>Pontos:</strong> {{playOne.points}}</p>
+        </div>
+        <div :class="['col-6', playerActived == 2 ? 'active' : '']">
+            <img src="assets/player2.png" alt="Play 1">
+            <p>player 2
+                <span class="badge badge-default">{{numberHistoricPlayerTwo}}</span></p>
+            <p><strong>Pontos:</strong> {{playTwo.points}}</p>
+        </div>
+
+        <div class="controls col">
+            <a href="#" class="btn btn-success" @click.prevent="changePlayer">Pular</a>
+            <a href="#" class="btn btn-primary" @click.prevent="finishGame">Finalizar Jogo</a>
+            <a href="#" class="btn btn-danger" @click.prevent="resetGame">Resetar</a>
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <a href="#" @click.prevent="selectedCart">
+                <img src="assets/baralho-cartas.png" alt="" class="carts">
+            </a>
+        </div>
+        <div class="col-6">
+            <div v-if="cartSelected != '' ">
+                <img :src=" 'assets/carts/'+cartSelected+'.png' " alt="Carte" class="cart">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    Vue.filter('toLowerCase', function (val) {
+        return val.toLowerCase();
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            playerActived: 1,
+            playOne:{
+                points : 0,
+                historic: []
+            },
+            playTwo:{
+                points: 0,
+                historic: []
+            },
+            cartSelected: ''
+        },
+        methods:{
+            changePlayer(){
+                this.playerActived = this.playerActived == 1 ? 2 :1
+                this.cartSelected = ''
+            },
+            selectedCart(){
+                this.cartSelected = Math.floor((Math.random() * 13)+1)
+                if(this.playerActived == 1){
+                    this.playOne.points += this.cartSelected
+                    this.playOne.historic.push(this.cartSelected);
+                }
+                if(this.playerActived == 2){
+                    this.playTwo.points += this.cartSelected
+                    this.playTwo.historic.push(this.cartSelected);
+                }
+                if (this.playOne.points >= 21 || this.playTwo.points >= 21) {
+                    this.finishGame();
+                }
+
+            },
+            finishGame(){
+                if (this.playOne.points <= 21 && this.playOne.points > this.playTwo.points) {
+                    alert("Play 1 é campeão");
+                }else if(this.playTwo.points <= 21 && this.playTwo.points > this.playOne.points){
+                    alert("Play 2 é campeão");
+                }else if (this.playOne.points > 21) {
+                    alert("Player 2 é o campeão")
+                }else if(this.playTwo.points > 21){
+                    alert("Player 1 é o campeão")
+                }else{
+                    alert("Empate");
+                }
+
+                let vm = this
+                setTimeout(function (){
+                    vm.resetGame();
+                }, 3000)
+            },
+            resetGame(){
+                this.playOne.points = 0
+                this.playTwo.points = 0
+                this.cartSelected = ''
+                this.playerActived = 1
+            }
+        },
+        computed: {
+            numberHistoricPlayerOne(){
+                return this.playOne.historic.length
+            },
+            numberHistoricPlayerTwo(){
+                return this.playTwo.historic.length
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
+```
+
 [Voltar ao Índice](#indice)
 
 ---

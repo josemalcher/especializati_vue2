@@ -17,12 +17,15 @@
     <div class="row">
         <div :class="['col-6', playerActived == 1 ? 'active' : '']">
             <img src="assets/player1.png" alt="Play 1">
-            <p>player 1</p>
+            <p>player 1
+                <span class="badge badge-default">{{numberHistoricPlayerOne}}</span>
+            </p>
             <p><strong>Pontos:</strong> {{playOne.points}}</p>
         </div>
         <div :class="['col-6', playerActived == 2 ? 'active' : '']">
             <img src="assets/player2.png" alt="Play 1">
-            <p>player 2</p>
+            <p>player 2
+                <span class="badge badge-default">{{numberHistoricPlayerTwo}}</span></p>
             <p><strong>Pontos:</strong> {{playTwo.points}}</p>
         </div>
 
@@ -61,24 +64,29 @@
         data: {
             playerActived: 1,
             playOne:{
-                points : 0
+                points : 0,
+                historic: []
             },
             playTwo:{
-                points: 0
+                points: 0,
+                historic: []
             },
             cartSelected: ''
         },
         methods:{
             changePlayer(){
                 this.playerActived = this.playerActived == 1 ? 2 :1
+                this.cartSelected = ''
             },
             selectedCart(){
                 this.cartSelected = Math.floor((Math.random() * 13)+1)
                 if(this.playerActived == 1){
                     this.playOne.points += this.cartSelected
+                    this.playOne.historic.push(this.cartSelected);
                 }
                 if(this.playerActived == 2){
                     this.playTwo.points += this.cartSelected
+                    this.playTwo.historic.push(this.cartSelected);
                 }
                 if (this.playOne.points >= 21 || this.playTwo.points >= 21) {
                     this.finishGame();
@@ -108,6 +116,14 @@
                 this.playTwo.points = 0
                 this.cartSelected = ''
                 this.playerActived = 1
+            }
+        },
+        computed: {
+            numberHistoricPlayerOne(){
+                return this.playOne.historic.length
+            },
+            numberHistoricPlayerTwo(){
+                return this.playTwo.historic.length
             }
         }
 

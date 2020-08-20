@@ -1033,6 +1033,13 @@ npm run dev
 ```
 
 - 02 - Estrutura webpack-simple Vue CLI
+
+    - Webpack Simple: https://github.com/vuejs-templates/webpack-simple/tree/master/template
+    - Webpack: https://webpack.github.io e https://webpack.js.org
+    
+
+
+
 - 03 - Components Vue CLI
 - 04 - Component Listagem de Itens
 

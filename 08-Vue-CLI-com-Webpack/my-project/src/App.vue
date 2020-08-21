@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
+  <div id="app" class="comp">
    <teste-component></teste-component>
     <hr>
     <form-component></form-component>
+    <hr>
+    <TaskComponents></TaskComponents>
   </div>
 </template>
 
@@ -10,6 +12,7 @@
 
 import TesteComponent from './components/TesteComponent'
 import FormComponent from "./components/FormComponent";
+import TaskComponents from "./components/TaskComponents";
 
 
 export default {
@@ -21,12 +24,20 @@ export default {
   },
   components:{
     TesteComponent,
-    FormComponent
+    FormComponent,
+    TaskComponents
   }
 }
 </script>
 
 <style>
+
+.comp{
+  border: 1px solid blue;
+  margin: 5px;
+  padding: 5px;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

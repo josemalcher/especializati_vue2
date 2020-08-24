@@ -1,43 +1,27 @@
 <template>
-  <div id="app" class="comp">
-   <teste-component></teste-component>
-    <hr>
-    <form-component></form-component>
-    <hr>
-    <TaskComponents></TaskComponents>
+  <div id="app">
+    <FormComponent></FormComponent>
   </div>
 </template>
 
 <script>
-
-import TesteComponent from './components/TesteComponent'
 import FormComponent from "./components/FormComponent";
-import TaskComponents from "./components/TaskComponents";
-
 
 export default {
+
   name: 'app',
   data () {
     return {
-      msg: 'OLá Mundo!'
+      msg: 'Welcome to Your Vue.js App'
     }
   },
   components:{
-    TesteComponent,
-    FormComponent,
-    TaskComponents
+    FormComponent
   }
 }
 </script>
 
 <style>
-
-.comp{
-  border: 1px solid blue;
-  margin: 5px;
-  padding: 5pxnpm r;
-}
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

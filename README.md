@@ -1203,6 +1203,8 @@ export default {
 ```
 
 - 02 - Manipulando Formulários com Vue JS
+
+
 - 03 - Textarea multiplas linhas (pre)
 - 04 - Instalando e Configurando VeeValidate
 - 05 - Validando Campos com VeeValidate

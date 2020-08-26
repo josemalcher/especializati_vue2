@@ -22,7 +22,15 @@
       <label for="agree">Concordo com os termos de uso</label>
       <input type="checkbox" id="agree" v-model="terms">
       <hr>
-      <textarea name="textarea" id="textarea" cols="30" rows="10" v-model="description"></textarea> {{description}}
+      <textarea name="textarea" id="textarea" cols="30" rows="10" v-model="description"></textarea>
+<!--      <div style="white-space: pre;" v-text="description">-->
+<!--      <div style="white-space: pre;" v-html="description">-->
+<!--        {{description}}-->
+      <div>
+        <pre v-html="description">
+
+        </pre>
+      </div>
       <hr>
       <button type="submit">Enviar</button>
     </form>

@@ -3,7 +3,10 @@
     <form>
       <input type="text" placeholder="Nome" v-model="userData.name"> {{userData.name}}
       <hr>
-      <input type="text" placeholder="E-mail" v-model="userData.email"> {{userData.email}}
+<!--      <input v-validate="'required|email'" type="text"  name="email" type="text" placeholder="E-mail" v-model="userData.email"> {{userData.email}}-->
+      <!--<span>{{ errors.first('email') }}</span>-->
+      <input v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Email">
+      <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
       <hr>
       <input type="text" placeholder="Idade" v-model.number="userData.age"> {{userData.age}}
       <hr>

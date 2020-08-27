@@ -1207,6 +1207,11 @@ export default {
 
 - 03 - Textarea multiplas linhas (pre)
 - 04 - Instalando e Configurando VeeValidate
+
+    - http://vee-validate.logaretm.com/
+
+
+
 - 05 - Validando Campos com VeeValidate
 - 06 - Validar Submit com VeeValidate
 

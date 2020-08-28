@@ -5,8 +5,12 @@
       <hr>
 <!--      <input v-validate="'required|email'" type="text"  name="email" type="text" placeholder="E-mail" v-model="userData.email"> {{userData.email}}-->
       <!--<span>{{ errors.first('email') }}</span>-->
-      <input v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Email">
-      <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
+      <div :class="{'is-danget': errors.has('email')}">
+        <input v-validate="'required|email'" name="email" type="text" placeholder="Email">
+        <p v-if="errors.has('email')">
+          {{ errors.first('email') }}
+        </p>
+      </div>
       <hr>
       <input type="text" placeholder="Idade" v-model.number="userData.age"> {{userData.age}}
       <hr>
@@ -61,5 +65,10 @@ export default {
 </script>
 
 <style scoped>
-
+.is-danger{
+  border: 1px solid red;
+}
+.is-danger p{
+  color: red;
+}
 </style>

@@ -1,12 +1,18 @@
 <template>
   <div>
-    <form>
-      <input type="text" placeholder="Nome" v-model="userData.name"> {{userData.name}}
+    <form @submit.prevent="saveData">
+      <div :class="{'is-danger': errors.has('name')}">
+        <input name="name" v-validate="'required|min:3|max:10'" type="text" placeholder="Nome" v-model="userData.name">
+        {{userData.name}}
+        <p v-if="errors.has('name')">
+          {{ errors.first('name') }}
+        </p>
+      </div>
       <hr>
 <!--      <input v-validate="'required|email'" type="text"  name="email" type="text" placeholder="E-mail" v-model="userData.email"> {{userData.email}}-->
       <!--<span>{{ errors.first('email') }}</span>-->
-      <div :class="{'is-danget': errors.has('email')}">
-        <input v-validate="'required|email'" name="email" type="text" placeholder="Email">
+      <div :class="{'is-danger': errors.has('email')}">
+        <input  name="email" v-validate="'required|email'" type="email" placeholder="Email" v-model="userData.email">
         <p v-if="errors.has('email')">
           {{ errors.first('email') }}
         </p>
@@ -41,6 +47,9 @@
       <hr>
       <button type="submit">Enviar</button>
     </form>
+    <div v-show="isSubmited">
+      {{userData}}
+    </div>
   </div>
 </template>
 
@@ -49,16 +58,28 @@ export default {
   data(){
     return {
       userData:{
-        name: '',
+        name:  '',
         email: '',
-        age: '',
-        sexo: '',
+        age:   '',
+        sexo:  '',
         estado: ''
       },
       terms: true,
-      description: ''
+      description: '',
+      isSubmited: false,
     }
-
+  },
+  methods:{
+    saveData(){
+      this.$validator.validateAll().then((result) => {
+        if(result){
+//          alert("Form Submited");
+          this.isSubmited = true;
+          return;
+        }
+        alert('Correct them erros');
+      });
+    }
   }
 }
 

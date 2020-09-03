@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
-    <TasksComponents></TasksComponents>
+    <TasksComponents :title="'Título no APP'" :items="['lavar', 'cozinhar', 'passar']"></TasksComponents>
   </div>
 </template>
 

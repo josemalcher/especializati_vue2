@@ -1224,6 +1224,11 @@ export default {
 
 - 01 - Comunicação entre components
 - 02 - Props Vue JS
+
+    - https://vuejs.org/v2/guide/components.html#Passing-Data-to-Child-Components-with-Props
+
+     
+
 - 03 - Props Avançado Vue JS
 - 04 - Emit no Vue JS
 - 05 - Emit com Parâmetros no Vue JS

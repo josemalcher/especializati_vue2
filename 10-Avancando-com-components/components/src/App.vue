@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
-    <TasksComponents :title="'Título no APP'" :items="['lavar', 'cozinhar', 'passar']"></TasksComponents>
+    <TasksComponents @callParent="answerSon" :title="'Título no APP'" :items="['lavar', 'cozinhar', 'passar']"></TasksComponents>
 
     <ListItemsComponent :title="'Listagem de Algo'"
                         :items="['val 1', 'val 2']"></ListItemsComponent>
@@ -20,10 +20,15 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  methods:{
+    answerSon(){
+      alert("Responde FILHO")
+    }
+  },
   components:{
     TasksComponents,
     ListItemsComponent
-  }
+  },
 }
 </script>
 

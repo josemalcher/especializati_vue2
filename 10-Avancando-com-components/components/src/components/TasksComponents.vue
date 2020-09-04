@@ -2,6 +2,8 @@
   <div>
     <h2>{{ title }}</h2>
 
+    <button @click="callParent">Chamar Pai</button>
+
     <ul>
       <li v-for="(item,index) in items">{{item}}</li>
     </ul>
@@ -16,6 +18,12 @@ export default {
   data (){
     return {
       //title: "Lista de Tarefas"
+    }
+  },
+  methods:{
+    callParent(){
+      alert("CHAMA PAI")
+      this.$emit('callParent')
     }
   }
 }

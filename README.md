@@ -1234,6 +1234,8 @@ export default {
 - 05 - Emit com Parâmetros no Vue JS
 - 06 - Preparando Projeto Lista de Tarefas no Vue JS
 - 07 - Instalando e Configurando o Bootstrap no Vue JS
+    - Bootstrap Vue: https://bootstrap-vue.js.org/
+
 - 08 - Listagem das Tarefas com Vue JS
 - 09 - Cadastrar Nova Tarefa com Vue JS
 - 10 - Editar Tarefas no Vue JS

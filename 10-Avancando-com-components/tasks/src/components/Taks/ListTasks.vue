@@ -21,7 +21,7 @@
         <td>{{ task.name }}</td>
         <td>
           <a href="#" @click.prevent="edit(index)" class="btn btn-info">Editar</a>
-          <a href="" class="btn btn-danger">Apagar</a>
+          <a href="#" @click.prevent="deleteTask(index)" class="btn btn-danger">Apagar</a>
         </td>
       </tr>
       </tbody>
@@ -72,6 +72,9 @@ export default {
         id: '',
         name: ''
       }
+    },
+    deleteTask(index){
+      this.tasks.splice(index, 1);
     }
   }
 }

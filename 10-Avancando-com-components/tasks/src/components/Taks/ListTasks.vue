@@ -32,8 +32,8 @@
               <td>{{ task.id }}</td>
               <td>{{ task.name }}</td>
               <td>
-                <a href="#" @click.prevent="edit(index)" class="btn btn-info">Editar</a>
-                <a href="#" @click.prevent="deleteTask(index)" class="btn btn-danger">Apagar</a>
+                <a href="#" @click.prevent="edit(task.id)" class="btn btn-info">Editar</a>
+                <a href="#" @click.prevent="deleteTask(task.id)" class="btn btn-danger">Apagar</a>
               </td>
             </tr>
             </tbody>
@@ -73,9 +73,11 @@ export default {
       this.tasks.push(this.task);
       this.clearForm();
     },
-    edit(index) {
-      this.task = this.tasks[index];
-      this.updateIndex = index;
+    edit(id) {
+      this.updateIndex  = this.findIndexItem(id);
+
+      this.task = this.tasks[this.updateIndex];
+
       this.updating = true;
     },
     update() {
@@ -89,8 +91,15 @@ export default {
         name: ''
       }
     },
-    deleteTask(index) {
-      this.tasks.splice(index, 1);
+    deleteTask(id) {
+      this.tasks.splice(this.findIndexItem(id), 1);
+    },
+    findIndexItem(id){
+      for (let index = 0; index < this.tasks.length; index++) {
+        if (this.tasks[index].id == id) {
+          return index;
+        }
+      }
     }
   },
   computed: {

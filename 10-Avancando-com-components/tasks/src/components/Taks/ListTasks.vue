@@ -1,31 +1,46 @@
 <template>
-  <div>
-    <h2>{{ title }}</h2>
+  <div class="container">
+    <div>
+      <h2>{{ title }}</h2>
+      <div class="row">
+        <div class="col">
+          <form action="" class="form form-inline">
+            <input type="text" class="form-control" placeholder="Encontrar" v-model="filter">
+          </form>
+        </div>
+        <div class="col">
+          <form action="" class="form form-inline" @submit.prevent="onSubmit">
+            <input type="text" placeholder="Nome Tarefa" class="form-control" v-model="task.name">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
 
-    <form action="" class="form form-inline" @submit.prevent="onSubmit">
-      <input type="text" placeholder="Nome Tarefa" class="form-control" v-model="task.name">
-      <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
 
-    <table class="table table-responsive">
-      <thead>
-      <tr>
-        <th>ID.</th>
-        <th>Nome</th>
-        <th>Ações</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="(task, index) in tasks" :key="index">
-        <td>{{ task.id }}</td>
-        <td>{{ task.name }}</td>
-        <td>
-          <a href="#" @click.prevent="edit(index)" class="btn btn-info">Editar</a>
-          <a href="#" @click.prevent="deleteTask(index)" class="btn btn-danger">Apagar</a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      <div class="row">
+        <div class="col">
+          <table class="table tab-content">
+            <thead>
+            <tr>
+              <th>ID.</th>
+              <th>Nome</th>
+              <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(task, index) in filteredItems" :key="index">
+              <td>{{ task.id }}</td>
+              <td>{{ task.name }}</td>
+              <td>
+                <a href="#" @click.prevent="edit(index)" class="btn btn-info">Editar</a>
+                <a href="#" @click.prevent="deleteTask(index)" class="btn btn-danger">Apagar</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,15 +51,16 @@ export default {
       title: "Lista de Tarefas",
       tasks: [],
       task: {
-        id:   '',
+        id: '',
         name: ''
       },
       updating: false,
       updateIndex: '',
+      filter: ''
     }
   },
   methods: {
-    onSubmit(){
+    onSubmit() {
       if (this.updating) {
         this.update();
         return
@@ -57,24 +73,39 @@ export default {
       this.tasks.push(this.task);
       this.clearForm();
     },
-    edit(index){
+    edit(index) {
       this.task = this.tasks[index];
       this.updateIndex = index;
       this.updating = true;
     },
-    update(){
+    update() {
       this.tasks[this.updateIndex] = this.task;
       this.updating = false;
       this.clearForm();
     },
-    clearForm(){
-      this.task={
+    clearForm() {
+      this.task = {
         id: '',
         name: ''
       }
     },
-    deleteTask(index){
+    deleteTask(index) {
       this.tasks.splice(index, 1);
+    }
+  },
+  computed: {
+    filteredItems() {
+      if (this.filter === '') {
+        return this.tasks
+      }
+      let vm = this;
+      return this.tasks.filter(task => {
+        return task.name.toLowerCase().indexOf(vm.filter.toLowerCase()) > -1;
+      })
+      /*return this.tasks.filter(task => {
+        return task['name', 'id'].includes(vm.filter)
+      })*/
+
     }
   }
 }

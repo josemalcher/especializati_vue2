@@ -11,9 +11,7 @@ export default {
 name: "Quiz",
   data(){
   return{
-    title:{
       title: 'QUIZ',
-    }
   }
   },
   components:{

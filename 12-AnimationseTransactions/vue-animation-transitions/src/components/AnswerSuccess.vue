@@ -1,17 +1,24 @@
 <template>
-<div>
-  <h1>{{title}}</h1>
-  <hr>
-  <p>Sucesso na Resposta!</p>
-</div>
+  <div>
+    <h1>{{ title }}</h1>
+    <hr>
+    <p>Sucesso na Resposta!</p>
+    <button @click="nexstQuestion">Proxima Pergunta</button>
+  </div>
 </template>
 
 <script>
 export default {
-name: "AnswerSuccess",
-  data(){
-    return{
+  name: "AnswerSuccess",
+  data() {
+    return {
       title: 'SUCESSO!'
+    }
+  },
+
+  methods: {
+    nexstQuestion() {
+      this.$emit('changeMode');
     }
   }
 }

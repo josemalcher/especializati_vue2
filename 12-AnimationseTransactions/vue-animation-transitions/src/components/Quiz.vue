@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 v-text="title"></h2>
-<!--    <app-question @changeMode="changeMode"></app-question>-->
+    <!--    <app-question @changeMode="changeMode"></app-question>-->
     <component
       :is="mode"
       @changeMode="changeMode">
@@ -11,22 +11,31 @@
 
 <script>
 import Question from "./Question";
+import AnswerSuccess from "./AnswerSuccess";
+import AnswerError from "./AnswerError";
 
 export default {
   name: "Quiz",
   data() {
     return {
       title: 'QUIZ',
-      mode:'app-question'
+      mode: 'app-question'
     }
   },
   methods: {
-    changeMode() {
-      alert("TESTE")
+    changeMode(mode) {
+      if (mode == undefined) {
+        this.mode = 'app-question';
+      } else {
+        this.mode = mode
+
+      }
     }
   },
   components: {
-    'app-question': Question
+    'app-question': Question,
+    AnswerSuccess,
+    AnswerError
   }
 }
 </script>

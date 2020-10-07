@@ -36,12 +36,11 @@ export default {
       return Math.round(Math.random() * (max - min)) + min
     },
     checkResult(){
+      let mode = 'answer-error';
       if(this.reply == this.result){
-        alert("Acertou!")
-      }else {
-        alert("ERROU!")
+       mode = "answer-success"
       }
-      this.$emit('changeMode');
+      this.$emit('changeMode', mode);
     }
   }
 }

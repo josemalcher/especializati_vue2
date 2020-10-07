@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>{{title}}</h1>
+    <h1>{{ title }}</h1>
     <hr>
     <p>ERRO na Resposta!</p>
+
+    <button @click="nexstQuestion">Proxima Pergunta</button>
   </div>
 </template>
 
@@ -10,7 +12,14 @@
 export default {
   name: "AnswerError",
   data() {
-    return {title:Errada!}
+    return {
+      title: 'Errada'
+    }
+  },
+  methods:{
+    nexstQuestion(){
+      this.$emit('changeMode');
+    }
   }
 }
 </script>

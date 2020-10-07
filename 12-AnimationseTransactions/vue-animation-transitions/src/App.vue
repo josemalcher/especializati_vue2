@@ -19,6 +19,7 @@ export default {
       show: false,
     }
   },
+
   components:{
     'app-quiz': Quiz
   }

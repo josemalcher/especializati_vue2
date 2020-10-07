@@ -32,7 +32,7 @@ export default {
       this.question = `Qual é o resultado da soma entre ${numberOne} + ${numberTwo} ?`
 
     },
-    generateRandomNumber(min, max){
+    generateRandomNumber(min, max ){
       return Math.round(Math.random() * (max - min)) + min
     },
     checkResult(){
@@ -41,6 +41,7 @@ export default {
       }else {
         alert("ERROU!")
       }
+      this.$emit('changeMode');
     }
   }
 }

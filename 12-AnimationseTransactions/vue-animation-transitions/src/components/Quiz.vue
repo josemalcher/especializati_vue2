@@ -1,13 +1,17 @@
 <template>
-  <div>
+  <div class="container">
     <h2 v-text="title"></h2>
     <!--    <app-question @changeMode="changeMode"></app-question>-->
-    <transition name="effect" mode="out-in">
-      <component
-        :is="mode"
-        @changeMode="changeMode">
-      </component>
-    </transition>
+    <div class="row">
+      <div class="col">
+        <transition name="effect" mode="out-in">
+          <component
+            :is="mode"
+            @changeMode="changeMode">
+          </component>
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,25 +47,28 @@ export default {
 </script>
 
 <style scoped>
-.effect-leave-active{
+.effect-leave-active {
   animation: effect-out 2.5s;
 }
-.effect-enter-active{
+
+.effect-enter-active {
   animation: effect-in 2.5s;
 }
+
 @keyframes effect-out {
   from {
     transform: rotateY(0deg);
   }
-  to{
+  to {
     transform: rotateY(90deg);
   }
 }
+
 @keyframes effect-in {
   from {
     transform: rotateY(90deg);
   }
-  to{
+  to {
     transform: rotateY(0deg);
   }
 }

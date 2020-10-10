@@ -1,29 +1,37 @@
 <template>
-  <div>
-    <h2 v-text="question"></h2>
+  <div class="card">
 
-    <form @submit.prevent="checkResult">
-      <input type="text" placeholder="Resposta:" v-model="reply">
-      <button type="submit">Responder</button>
-    </form>
+    <div class="class-header">
+      <h2 v-text="question"></h2>
+
+    </div>
+    <div class="card-body">
+      <form @submit.prevent="checkResult" class="form form-inline">
+        <input type="text" placeholder="Resposta:" v-model="reply" class="form-control">
+        <button class="btn btn-primary" type="submit">Responder</button>
+      </form>
+
+    </div>
+
+
 
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-        question: 'Gerando pergunta...',
-        result: 0,
+  data() {
+    return {
+      question: 'Gerando pergunta...',
+      result: 0,
       reply: '',
     }
   },
   created() {
     this.generateQuestion();
   },
-  methods:{
-    generateQuestion(){
+  methods: {
+    generateQuestion() {
       let numberOne = this.generateRandomNumber(1, 100);
       let numberTwo = this.generateRandomNumber(1, 100);
 
@@ -32,13 +40,13 @@ export default {
       this.question = `Qual é o resultado da soma entre ${numberOne} + ${numberTwo} ?`
 
     },
-    generateRandomNumber(min, max ){
+    generateRandomNumber(min, max) {
       return Math.round(Math.random() * (max - min)) + min
     },
-    checkResult(){
+    checkResult() {
       let mode = 'answer-error';
-      if(this.reply == this.result){
-       mode = "answer-success"
+      if (this.reply == this.result) {
+        mode = "answer-success"
       }
       this.$emit('changeMode', mode);
     }

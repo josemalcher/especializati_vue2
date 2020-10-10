@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="alert alert-success text-center">
     <h1>{{ title }}</h1>
     <hr>
     <p>Sucesso na Resposta!</p>
-    <button @click="nexstQuestion">Proxima Pergunta</button>
+    <button @click="nexstQuestion" class="btn btn-primary">Proxima Pergunta</button>
   </div>
 </template>
 

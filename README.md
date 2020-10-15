@@ -1276,6 +1276,9 @@ export default {
 - 07 - Adicionar o Bootstrap ao Projeto Vue JS
 - 08 - Mais Sobre Animações e Transições no Vue JS
 
+    - Documentação: https://vuejs.org/v2/guide/transitions.html
+    - Diversos Exemplos de Animações e Projetos em Vue JS: https://madewithvuejs.com/
+
 [Voltar ao Índice](#indice)
 
 ---

@@ -4,6 +4,13 @@
     <form @submit.prevent="onSubmit">
       <input type="text"placeholder="Informe o CEP" v-model="cep">
       <button type="submit">Buscar CEP </button>
+
+      <div v-show="address.bairro != ''">
+        <p><b>Bairro: </b>{{address.bairro}}</p>
+        <p><b>Cidade: </b>{{address.cidade}}</p>
+        <p><b>Logradouro: </b>{{address.logradouro}}</p>
+        <p><b>CEP: </b>{{address.cep}}</p>
+      </div>
     </form>
   </div>
 </template>
@@ -14,7 +21,10 @@ export default {
   data() {
     return {
       title: "Busca CEP com Vue JS",
-      cep: ''
+      cep: '',
+      address:{
+        bairro:''
+      }
     }
   },
   methods:{
@@ -22,7 +32,8 @@ export default {
       // GET /someUrl
       this.$http.get('https://api.postmon.com.br/v1/cep/'+this.cep)
         .then(response => {
-        console.log(response.body)
+          this.address = response.body;
+          console.log(response.body)
 
       }, response => {
         console.log(error)

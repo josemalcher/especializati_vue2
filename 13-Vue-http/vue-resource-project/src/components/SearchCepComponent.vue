@@ -4,10 +4,13 @@
     <form @submit.prevent="onSubmit">
       <input type="text"placeholder="Informe o CEP" v-model="cep">
       <button type="submit">Buscar CEP </button>
+      <div v-if="error != ''">
+        <p>{{error}}</p>
+      </div>
       <div v-if="preloader">
         <img src="../assets/ajax-loader.gif" alt="Carregando...">
       </div>
-      <div v-show="address.bairro != ''">
+      <div v-show="address.bairro">
         <p><b>Bairro: </b>{{address.bairro}}</p>
         <p><b>Cidade: </b>{{address.cidade}}</p>
         <p><b>Logradouro: </b>{{address.logradouro}}</p>
@@ -24,30 +27,29 @@ export default {
     return {
       title: "Busca CEP com Vue JS",
       cep: '',
-      address:{
-        bairro:''
-      },
-      preloader: false
+      address:{},
+      preloader: false,
+      error: '',
     }
   },
   methods:{
     onSubmit(){
-
-      this.preloader = true
+      this.reset();
+      this.preloader  = true
 
       // GET /someUrl
       this.$http.get('https://api.postmon.com.br/v1/cep/'+this.cep)
         .then(response => {
           this.address = response.body;
-          console.log(response.body)
-          this.preloader = false;
-
       }, response => {
-        this.preloader = false
-          console.log(error)
+          this.error = 'ERRO NO CEP'
       }).finally(()=>{
         this.preloader = false
       });
+    },
+    reset(){
+      this.error      = ''
+      this.address    = {}
     }
   }
 }
